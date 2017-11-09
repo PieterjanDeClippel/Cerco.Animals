@@ -1,0 +1,87 @@
+﻿@model Cerco.Animals.Web.Models.Company.EditCompanyVM
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Edit Company</h2>
+@using (Html.BeginForm())
+{
+    <div class="container-fluid">
+        <div class="form-group row">
+            <div class="col-md-4">Name</div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(c => c.Company.Name, new { @class = "form-control" })
+                @*@Html.ValidationMessageFor(c => c.Company.Name, "", new { @class = "text-danger" })*@
+                @if (Model.Errors.ContainsKey("Name"))
+                {
+                    <span class="text-danger">@Model.Errors["Name"]</span>
+                }
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">Street</div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(c => c.Company.Street, new { @class = "form-control" })
+                @*@Html.ValidationMessageFor(c => c.Company.Street, "", new { @class = "text-danger" })*@
+                @if (Model.Errors.ContainsKey("Street"))
+                {
+                    <span class="text-danger">@Model.Errors["Street"]</span>
+                }
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">Number</div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(c => c.Company.Number, new { @class = "form-control" })
+                @*@Html.ValidationMessageFor(c => c.Company.Number, "", new { @class = "text-danger" })*@
+                @if (Model.Errors.ContainsKey("Number"))
+                {
+                    <span class="text-danger">@Model.Errors["Number"]</span>
+                }
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">Postal Code</div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(c => c.Company.PostalCode, new { @class = "form-control" })
+                @*@Html.ValidationMessageFor(c => c.Company.PostalCode, "", new { @class = "text-danger" })*@
+                @if (Model.Errors.ContainsKey("PostalCode"))
+                {
+                    <span class="text-danger">@Model.Errors["PostalCode"]</span>
+                }
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">City</div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(c => c.Company.City, new { @class = "form-control" })
+                @*@Html.ValidationMessageFor(c => c.Company.City, "", new { @class = "text-danger" })*@
+                @if (Model.Errors.ContainsKey("City"))
+                {
+                    <span class="text-danger">@Model.Errors["City"]</span>
+                }
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">Country</div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(an => an.Company.Country, new { @class = "form-control" })
+                @*@Html.ValidationMessageFor(c => c.Company.Country, "", new { @class = "text-danger" })*@
+                @if (Model.Errors.ContainsKey("Country"))
+                {
+                    <span class="text-danger">@Model.Errors["Country"]</span>
+                }
+            </div>
+        </div>
+        @Html.HiddenFor(c => c.Company.Id)
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary mx-auto d-block">
+                    <i class="fa fa-save"></i>
+                    Save
+                </button>
+                <a href="@Url.Action("Show","Company", new { Model.Company.Id })" class="btn btn-default mx-auto d-block">Cancel</a>
+            </div>
+        </div>
+    </div>
+}

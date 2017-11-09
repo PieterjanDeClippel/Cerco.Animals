@@ -1,0 +1,88 @@
+﻿@model Cerco.Animals.Web.Models.Company.ShowCompanyVM
+@{
+    ViewData["Title"] = "Show";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@Model.Company.Name</h2>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Details
+                <a class="btn btn-default pull-right" href="@Url.Action("Edit","Company", new { Model.Company.Id })">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </a>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td>@Model.Company.Name</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>@( Model.Company.Street + " " + Model.Company.Number)</td>
+                        </tr>
+                        <tr>
+                            <td>City</td>
+                            <td>@( Model.Company.PostalCode + " " + Model.Company.City)</td>
+                        </tr>
+                        <tr>
+                            <td>Country</td>
+                            <td>@( Model.Company.Country )</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Animals
+                <a class="btn btn-default pull-right" href="@Url.Action("Create","Animal", new { company_id = Model.Company.Id })">
+                    <i class="glyphicon glyphicon-plus-sign"></i>
+                </a>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Tattoo</td>
+                            <td>Gender</td>
+                            <td>Birth Date</td>
+                            <td style="width:40px"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Company.Animals != null)
+                        {
+                            @foreach (var animal in Model.Animals)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="@Url.Action("Show","Animal", new { company_id = Model.Company.Id, id = animal.Id })">@animal.Name</a>
+                                        @*@Html.ActionLink(animal.Name, "Show", "Animal", new { animal.Id }, null)*@
+                                    </td>
+                                    <td>@animal.Tattoo</td>
+                                    <td>@animal.Gender</td>
+                                    <td>@animal.DateOfBirth.ToString("dd/MM/yyyy")</td>
+                                    <td style="width:40px">
+                                        @using (Html.BeginForm("Delete", "Animal", new { company_id = Model.Company.Id, id = animal.Id }, FormMethod.Post))
+                                        { 
+                                            <button type="submit" class="btn btn-default">
+                                                <i class="glyphicon glyphicon-trash"></i>
+                                            </button>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

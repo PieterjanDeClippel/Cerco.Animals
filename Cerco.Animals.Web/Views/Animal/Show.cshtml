@@ -1,0 +1,43 @@
+﻿@model Cerco.Animals.Web.Models.Animal.ShowAnimalVM
+@{
+    ViewData["Title"] = "Show";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Company.Name</h2>
+<h3>Edit @Model.Animal.Name</h3>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @Model.Animal.Name
+        <a class="btn btn-default pull-right" href="@Url.Action("Edit","Animal", new { company_id = Model.Company.Id, id = Model.Animal.Id })">
+            <i class="glyphicon glyphicon-pencil"></i>
+        </a>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>@Model.Animal.Name</td>
+                </tr>
+                <tr>
+                    <td>Tattoo</td>
+                    <td>@Model.Animal.Tattoo</td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>@Enum.GetName(Model.Animal.Gender.GetType(), Model.Animal.Gender)</td>
+                </tr>
+                <tr>
+                    <td>Birth Date</td>
+                    <td>@Model.Animal.DateOfBirth.ToString("dd/MM/yyyy")</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<a class="btn btn-default" href="@Url.Action("Show","Company", new { id = Model.Company.Id })">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    Back to list
+</a>

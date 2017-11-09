@@ -1,0 +1,68 @@
+﻿@model Cerco.Animals.Web.Models.Animal.EditAnimalVM
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Company.Name</h2>
+<h3>Edit Animal: @Model.Animal.Name</h3>
+
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <div class="form-group row">
+            <div class="col-md-4">Name</div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(an => an.Animal.Name, new { @class = "form-control" })
+                @*@Html.ValidationMessageFor(m => m.Animal.Name, "", new { @class = "text-danger" })*@
+                @if (Model.Errors.ContainsKey("Name"))
+                {
+                    <span class="text-danger">@Model.Errors["Name"]</span>
+                }
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">Tattoo</div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(an => an.Animal.Tattoo, new { @class = "form-control" })
+                @*@Html.ValidationMessageFor(m => m.Animal.Tattoo, "", new { @class = "text-danger" })*@
+                @if (Model.Errors.ContainsKey("Tattoo"))
+                {
+                    <span class="text-danger">@Model.Errors["Tattoo"]</span>
+                }
+           </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">Gender</div>
+            <div class="col-md-8">
+                @Html.DropDownListFor(m => m.Animal.Gender, Cerco.Animals.Web.Shared.SelectLists.Gender, new { @class = "form-control" })
+                @if (Model.Errors.ContainsKey("Gender"))
+                {
+                    <span class="text-danger">@Model.Errors["Gender"]</span>
+                }
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">Birth Date</div>
+            <div class="col-md-8">
+                @Html.EditorFor(an => an.Animal.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.ValidationMessageFor(m => m.Animal.Gender, "", new { @class = "text-danger" })*@
+                @if (Model.Errors.ContainsKey("DateOfBirth"))
+                {
+                    <span class="text-danger">@Model.Errors["DateOfBirth"]</span>
+                }
+            </div>
+        </div>
+        @Html.HiddenFor(m => m.Animal.Id)
+        @Html.HiddenFor(m => m.Animal.CompanyId)
+        <div class="form-group row">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-save"></i>
+                    Save
+                </button>
+                <a href="@Url.Action("Show","Animal", new { Model.Animal.Id })" class="btn btn-default mx-auto d-block">Cancel</a>
+            </div>
+        </div>
+    </div>
+}

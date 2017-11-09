@@ -1,0 +1,38 @@
+﻿@model Cerco.Animals.Web.Models.Animal.IndexAnimalVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Company.Name</h2>
+<h3>List of animals</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Tattoo</td>
+            <td>Gender</td>
+            <td>Birth Date</td>
+            <td style="width:40px"></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var animal in Model.Animals)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(animal.Name, "Show", "Animal", new { animal.Id }, null)
+                </td>
+                <td>@animal.Tattoo</td>
+                <td>@animal.Gender</td>
+                <td>@animal.DateOfBirth.ToString()</td>
+                <td style="width:40px">
+                    <a href="@Url.Action("Delete", "Animal", new { id = animal.Id })" class="btn btn-default">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

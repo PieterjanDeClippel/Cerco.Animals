@@ -1,0 +1,11 @@
+C:\Users\Gebruiker\Downloads\Cerco.Animals-master\Cerco.Animals.Dto\bin\Debug\netcoreapp2.0\Cerco.Animals.Dto.deps.json
+C:\Users\Gebruiker\Downloads\Cerco.Animals-master\Cerco.Animals.Dto\bin\Debug\netcoreapp2.0\Cerco.Animals.Dto.dll
+C:\Users\Gebruiker\Downloads\Cerco.Animals-master\Cerco.Animals.Dto\bin\Debug\netcoreapp2.0\Cerco.Animals.Dto.pdb
+C:\Users\Gebruiker\Downloads\Cerco.Animals-master\Cerco.Animals.Dto\bin\Debug\netcoreapp2.0\Cerco.Animals.Data.dll
+C:\Users\Gebruiker\Downloads\Cerco.Animals-master\Cerco.Animals.Dto\bin\Debug\netcoreapp2.0\Cerco.Animals.Data.pdb
+C:\Users\Gebruiker\Downloads\Cerco.Animals-master\Cerco.Animals.Dto\obj\Debug\netcoreapp2.0\Cerco.Animals.Dto.csprojResolveAssemblyReference.cache
+C:\Users\Gebruiker\Downloads\Cerco.Animals-master\Cerco.Animals.Dto\obj\Debug\netcoreapp2.0\Cerco.Animals.Dto.csproj.CoreCompileInputs.cache
+C:\Users\Gebruiker\Downloads\Cerco.Animals-master\Cerco.Animals.Dto\obj\Debug\netcoreapp2.0\Cerco.Animals.Dto.AssemblyInfoInputs.cache
+C:\Users\Gebruiker\Downloads\Cerco.Animals-master\Cerco.Animals.Dto\obj\Debug\netcoreapp2.0\Cerco.Animals.Dto.AssemblyInfo.cs
+C:\Users\Gebruiker\Downloads\Cerco.Animals-master\Cerco.Animals.Dto\obj\Debug\netcoreapp2.0\Cerco.Animals.Dto.dll
+C:\Users\Gebruiker\Downloads\Cerco.Animals-master\Cerco.Animals.Dto\obj\Debug\netcoreapp2.0\Cerco.Animals.Dto.pdb
