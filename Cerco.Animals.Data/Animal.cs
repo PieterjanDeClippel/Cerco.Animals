@@ -25,5 +25,6 @@ namespace Cerco.Animals.Data
         public DateTime DateOfBirth { get; set; }
 
         public virtual Company Company { get; set; }
+		
     }
 }
